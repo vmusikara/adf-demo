@@ -2,7 +2,7 @@
 	"name": "TGR_EVENT_SIMPLE",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipelines": [
 			{
 				"pipelineReference": {
