@@ -5,9 +5,6 @@
 		"factoryName": {
 			"value": "learn-adf-skills"
 		},
-		"LS_SQL_SERVER_password": {
-			"value": ""
-		},
 		"LS_ADLS_properties_typeProperties_url": {
 			"value": "https://learnmvbradls.dfs.core.windows.net/"
 		},
@@ -25,6 +22,9 @@
 		},
 		"TGR_EVENT_SIMPLE_properties_typeProperties_scope": {
 			"value": "/subscriptions/04411f39-ac1a-40f8-8498-c96110e65480/resourceGroups/rg-learn/providers/Microsoft.Storage/storageAccounts/learnmvbradls"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://kv-demo-adf.vault.azure.net/"
 		},
 		"containerUri": {
 			"value": ""

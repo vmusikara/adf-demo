@@ -7,10 +7,6 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "learn-adf-skills"
 		},
-		"LS_SQL_SERVER_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'LS_SQL_SERVER'"
-		},
 		"LS_ADLS_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://learnmvbradls.dfs.core.windows.net/"
@@ -34,6 +30,10 @@
 		"TGR_EVENT_SIMPLE_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/04411f39-ac1a-40f8-8498-c96110e65480/resourceGroups/rg-learn/providers/Microsoft.Storage/storageAccounts/learnmvbradls"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-demo-adf.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -1414,12 +1414,18 @@
 					"authenticationType": "SQL",
 					"userName": "[parameters('LS_SQL_SERVER_properties_typeProperties_userName')]",
 					"password": {
-						"type": "SecureString",
-						"value": "[parameters('LS_SQL_SERVER_password')]"
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault1",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "sql-db-password"
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/TGR_EVENT_SIMPLE')]",
@@ -1453,6 +1459,19 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/PL_FILE_EVENT')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }
