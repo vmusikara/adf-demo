@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "learn-adf-skills"
+		},
+		"LS_SQL_SERVER_password": {
+			"value": ""
+		},
+		"LS_ADLS_properties_typeProperties_url": {
+			"value": "https://learnmvbradls.dfs.core.windows.net/"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_server": {
+			"value": "demo-mvbr.database.windows.net"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_database": {
+			"value": "demo_sql_db"
+		},
+		"LS_SQL_SERVER_properties_typeProperties_userName": {
+			"value": "mvbr"
+		},
+		"TGR_EVENT_SIMPLE_properties_PL_FILE_EVENT_parameters_file_name": {
+			"value": "@triggerBody().fileName"
+		},
+		"TGR_EVENT_SIMPLE_properties_typeProperties_scope": {
+			"value": "/subscriptions/04411f39-ac1a-40f8-8498-c96110e65480/resourceGroups/rg-learn/providers/Microsoft.Storage/storageAccounts/learnmvbradls"
+		}
+	}
+}
