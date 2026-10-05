@@ -553,6 +553,7 @@
 				"activities": [
 					{
 						"name": "Read_Customer_Table",
+						"description": "Reading Customer Table.",
 						"type": "Lookup",
 						"dependsOn": [],
 						"policy": {
