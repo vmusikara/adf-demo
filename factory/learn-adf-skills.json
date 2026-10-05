@@ -1,0 +1,21 @@
+{
+	"name": "learn-adf-skills",
+	"properties": {
+		"globalParameters": {
+			"email_recepient": {
+				"type": "string",
+				"value": "bhaskarareddy612@gmail.com"
+			}
+		},
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ff224a6f-57c9-4ed9-adbd-f9a80c9474f1",
+		"tenantId": "c9547017-620c-41db-aab8-3acb95775a72"
+	}
+}

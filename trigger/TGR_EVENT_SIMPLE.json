@@ -1,0 +1,28 @@
+{
+	"name": "TGR_EVENT_SIMPLE",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PL_FILE_EVENT",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"file_name": "@triggerBody().fileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/source/blobs/source_folder/",
+			"blobPathEndsWith": ".txt",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/04411f39-ac1a-40f8-8498-c96110e65480/resourceGroups/rg-learn/providers/Microsoft.Storage/storageAccounts/learnmvbradls",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
